@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/white">
 
     <TabHost
         android:id="@android:id/tabhost"
@@ -36,7 +37,7 @@
                     android:id="@+id/view"
                     android:layout_width="fill_parent"
                     android:layout_height="2dp"
-                    android:background="darker_gray" />
+                    android:background="@color/darker_gray" />
 
                 <RelativeLayout
                     android:id="@+id/layout_bottom"

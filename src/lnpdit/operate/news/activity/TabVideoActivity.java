@@ -20,7 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class TabCommunicationActivity extends TabActivity{
+public class TabVideoActivity extends TabActivity{
 	Context context;
 	TextView textview;
 	
@@ -32,7 +32,7 @@ public class TabCommunicationActivity extends TabActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_communication);
+		setContentView(R.layout.activity_video);
 		
 		context = this;
 		

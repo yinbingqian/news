@@ -111,7 +111,7 @@ public class LoginActivity extends Activity {
 		HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
 		HttpClient httpClient = new DefaultHttpClient(httpParameters);
 		HttpPost httpPost = new HttpPost(
-				"http://200.20.30.142:8027/lnpdit/login");
+				"http://200.20.31.226:8027/lnpdit/login");
 		// 添加http头信息
 		httpPost.addHeader("Content-Type", "application/json");
 		httpPost.addHeader("User-Agent", "imgfornote");
@@ -122,9 +122,9 @@ public class LoginActivity extends Activity {
 		// httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
 
 		JSONObject json = new JSONObject();
-		json.put("name", "wys");
-		json.put("password", "wys");
-		json.put("phone", "67030");
+		json.put("name", "wangzhuo");
+		json.put("password", "wangzhuo");
+		json.put("phone", "67007");
 
 		httpPost.setEntity(new StringEntity(json.toString(), "UTF-8"));
 		HttpResponse httpResponse = httpClient.execute(httpPost);
@@ -157,44 +157,62 @@ public class LoginActivity extends Activity {
 					JSONObject json_all = new JSONObject(res_is);
 					JSONObject person = json_all.getJSONObject("LoginResult");
 
-					String Id = person.getString("Id");
-					String Islock = person.getString("Islock");
-					String Name = person.getString("Name");
-					String Password = person.getString("Password");
-					String RealName = person.getString("RealName");
-					String Remark = person.getString("Remark");
-					String Sex = person.getString("Sex");
-					String Sim = person.getString("Sim");
+					String ctimestr = person.getString("ctimestr");
+					String groupId = person.getString("groupId");
+					String headpic = person.getString("headpic");
+					String id = person.getString("id");
+					String imei = person.getString("imei");
+					String islock = person.getString("islock");
+					String name = person.getString("name");
+					String password = person.getString("password");
+					String realName = person.getString("realName");
+					String remark = person.getString("remark");
+					String remark1 = person.getString("remark1");
+					String remark2 = person.getString("remark2");
+					String remark3 = person.getString("remark3");
+					String sex = person.getString("sex");
+					String sim = person.getString("sim");
+					String token = person.getString("token");
+					String type = person.getString("type");
 
 					// shared
 					Context ctx = LoginActivity.this;  
 					SharedPreferences sp = ctx.getSharedPreferences("SP",
 							MODE_PRIVATE);
 					Editor editor = sp.edit();
-					editor.putString("Id", Id);
-					editor.putString("Islock", Islock);
-					editor.putString("Name", Name);
-					editor.putString("Password", Password);
-					editor.putString("RealName", RealName);
-					editor.putString("Remark", Remark);
-					editor.putString("Sex", Sex);
-					editor.putString("Sim", Sim);
+					editor.putString("ctimestr", ctimestr);
+					editor.putString("groupId", groupId);
+					editor.putString("headpic", headpic);
+					editor.putString("id", id);
+					editor.putString("imei", imei);
+					editor.putString("islock", islock);
+					editor.putString("name", name);
+					editor.putString("password", password);
+					editor.putString("realName", realName);
+					editor.putString("remark", remark);
+					editor.putString("remark1", remark1);
+					editor.putString("remark2", remark2);
+					editor.putString("remark3", remark3);
+					editor.putString("sex", sex);
+					editor.putString("sim", sim);
+					editor.putString("token", token);
+					editor.putString("type", type);
 					editor.commit();
 
-					if (!Id.equals("0")) {
+					if (!id.equals("0")) {
 						Intent intent = new Intent();
 						intent.setClass(LoginActivity.this, MainActivity.class);
 						startActivity(intent);
 						startService(intent);
 					}
-					Toast.makeText(ctx, Name, Toast.LENGTH_LONG).show();
+					Toast.makeText(ctx, name, Toast.LENGTH_LONG).show();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				// {"Id":20,"Islock":false,"Name":"admin","Password":"admin","RealName":"鐜嬪厓鐭�,
-				// "Remark":"","Sex":"0","Sim":"18940052640","Type":"2"}
+				// {"Id":20,"islock":false,"name":"admin","password":"admin","realName":"鐜嬪厓鐭�,
+				// "remark":"","Sex":"0","Sim":"18940052640","Type":"2"}
 				// Toast.makeText(context, res_is, Toast.LENGTH_LONG).show();
 
 				Log.d("news", res_is);

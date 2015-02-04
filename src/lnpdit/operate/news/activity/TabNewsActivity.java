@@ -1,133 +1,184 @@
 package lnpdit.operate.news.activity;
 
+import java.util.List;
+
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.sxit.activity.news.adapter.News_Adapter;
+import com.sxit.entity.news.FinNews;
+
+
 import lnpdit.operate.news.R;
-import android.app.TabActivity;
-import android.content.Context;
-import android.content.Intent;
+import lnpdit.operate.news.activity.news.NewsList_Activity;
+import lnpdit.operate.news.activity.news.News_Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager.LayoutParams;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
+import android.widget.ImageView;
+import android.widget.ListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.sxit.activity.base.BaseActivity;
+import com.sxit.http.SoapRes;
+import com.sxit.utils.SOAP_UTILS;
+import android.app.Activity;
+import android.content.Context;
 import android.widget.TextView;
 
-public class TabNewsActivity extends TabActivity{
-	Context context;
-	TextView textview;
-	
-	private PopupWindow popupWindow;
-	RadioGroup radioGroup;
-	TabHost tabHost;
-	TabHost.TabSpec tabSpec;
-	
+public class TabNewsActivity extends BaseActivity{
+	Button btn;
+	private ImageView img_back;
+	private PullToRefreshListView listView_news;
+	private ListView listView;
+	private News_Adapter adapter;
+	private List<FinNews> list;
+	private int pageIndex = 1;
+//	private DBHelper dbh;
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_news);
-		
-		context = this;
-		
-		RelativeLayout pop = (RelativeLayout) this.findViewById(R.id.popBtn);
-		pop.setClickable(true);
-		pop.setOnClickListener(popClick);
-		
-//		textview = (TextView) this.findViewById(R.id.textview);
-//		textview.setText("资讯");
-		}
-	
-	 // 点击弹出左侧菜单的显示方式  
-    OnClickListener popClick = new OnClickListener() {  
-        @Override  
-        public void onClick(View v) {  
-            // TODO Auto-generated method stub  
-            getPopupWindow();  
-            // 这里是位置显示方式,在屏幕的左侧  
-            popupWindow.showAtLocation(v, Gravity.LEFT, 0, 0);  
-        }  
-    };  
-  
-    /** 
-     * 创建PopupWindow 
-     */  
-    protected void initPopuptWindow() {  
-        // TODO Auto-generated method stub  
-        // 获取自定义布局文件activity_popupwindow_left.xml的视图  
-        View popupWindow_view = getLayoutInflater().inflate(R.layout.activity_popupwindow_left, null,  
-                false);  
-        // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度  
-        popupWindow = new PopupWindow(popupWindow_view, 200, LayoutParams.MATCH_PARENT, true);  
-        // 设置动画效果  
-        popupWindow.setAnimationStyle(R.style.AnimationFade);  
-        
-		tabHost = getTabHost();
-		tabHost.addTab(tabHost.newTabSpec("news").setIndicator("news")
-				.setContent(new Intent(this, TabNewsActivity.class)));
-		tabHost.addTab(tabHost.newTabSpec("photo").setIndicator("photo")
-				.setContent(new Intent(this, TabPhotoActivity.class)));
-		tabHost.addTab(tabHost.newTabSpec("video").setIndicator("video")
-				.setContent(new Intent(this, TabVideoActivity.class)));
+		super.onCreate(savedInstanceState);
+		this.isParentActivity = false;
+		initView();
+		setListeners();
 
-		radioGroup = (RadioGroup) popupWindow_view.findViewById(R.id.radiogroup);
-		radioGroup.setOnCheckedChangeListener(checkedChangeListener);
-        
-        // 点击其他地方消失  
-        popupWindow_view.setOnTouchListener(new OnTouchListener() {  
-            public boolean onTouch(View v, MotionEvent event) {  
-                // TODO Auto-generated method stub  
-                if (popupWindow != null && popupWindow.isShowing()) {  
-                    popupWindow.dismiss();  
-                    popupWindow = null;  
-                }  
-                return false;  
-            }  
-        });  
-        
-    }  
-    
-	/*** 
-     * 获取PopupWindow实例 
-     */  
-    private void getPopupWindow() {  
-        if (null != popupWindow) {  
-            popupWindow.dismiss();  
-            return;  
-        } else {  
-            initPopuptWindow();  
-        }  
-    } 
-    private OnCheckedChangeListener checkedChangeListener = new OnCheckedChangeListener() {
+		btn = (Button) findViewById(R.id.btn);
+//		String[] property_va = new String[] { "10", pageIndex + "" };
+//		soapService.getColumns(property_va, false);
+//		dbh = new DBHelper(this);
+//		dbh.setMsgReaded(dbh.queryLoginUserInfo().getUserid(), "-1");
+	}
+
+	private void initView() {
+		listView_news = (PullToRefreshListView) findViewById(R.id.listView_news);
+		listView = listView_news.getRefreshableView();
+		img_back = (ImageView) findViewById(R.id.img_back);
+	
+	}
+
+	private void setListeners() {
+		btn.setOnClickListener(this);
+		img_back.setOnClickListener(this);
+		btn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				intent.setClass(TabNewsActivity.this, News_Activity.class);
+				startActivity(intent);
+			}
+		});
+		listView_news.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("finnews", list.get(position - 1));
+				intent.putExtras(bundle);
+				intent.setClass(TabNewsActivity.this, NewsList_Activity.class);
+				startActivity(intent);
+			}
+		});
+		listView_news.setOnRefreshListener(new OnRefreshListener<ListView>() {
+
+			@Override
+			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+				new GetDataTask().execute();
+			}
+		});
+		// end of list
+		listView_news.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+
+			@Override
+			public void onLastItemVisible() {
+//				String[] property_va = new String[] { "10", ++pageIndex + "", getLoginUser().getUserid() };
+//				soapService.getColumns(property_va, true);
+			}
+		});
+	}
+
+	/**
+	 * 閸掓銆冮崚閿嬫煀
+	 * 
+	 * @author why
+	 * 
+	 */
+	private class GetDataTask extends AsyncTask<Void, Void, String> {
 
 		@Override
-		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			DisplayMetrics metrics = new DisplayMetrics();
-			getWindowManager().getDefaultDisplay().getMetrics(metrics);
-			int x = metrics.widthPixels / 3;
-			if (popupWindow != null && popupWindow.isShowing()) {  
-                popupWindow.dismiss();  
-                popupWindow = null;  
-            } 
-			switch (checkedId) {
-			case R.id.radio_news:
-				tabHost.setCurrentTabByTag("news");
-				break;
-			case R.id.radio_photo:
-				tabHost.setCurrentTabByTag("photo");
-				break;
-			case R.id.radio_video:
-				tabHost.setCurrentTabByTag("video");
-				break;
-			default:
-				break;
+		protected String doInBackground(Void... params) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
 			}
+			return "";
 		}
-	};
-}  
+
+		@Override
+		protected void onPostExecute(String result) {
+			pageIndex = 1;
+//			String[] property_va = new String[] { "10", pageIndex + "", getLoginUser().getUserid() };
+//			soapService.getColumns(property_va, false);
+			super.onPostExecute(result);
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.img_back:
+			finish();
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+	public void onEvent(SoapRes obj) {
+		super.onEvent(obj);
+		if (obj.getCode().equals(SOAP_UTILS.METHOD.GETCOLUMNS)) {
+			if (obj.isPage()) {
+				for (FinNews bean : (List<FinNews>) obj.getObj()) {
+					list.add(bean);
+				}
+				adapter.notifyDataSetChanged();
+			} else {
+				list = (List<FinNews>) obj.getObj();
+				if (list != null) {
+					if (list.size() != 0) {
+						adapter = new News_Adapter(this, list);
+						listView.setAdapter(adapter);
+					}
+				}
+			}
+			listView_news.onRefreshComplete();
+		}
+	}
+
+	@Override
+	public void onEventMainThread(String method) {
+		if (method.equals(SOAP_UTILS.METHOD.GETCOLUMNS)) {
+//			String[] property_va = new String[] { "10", pageIndex + "" };
+//			soapService.getColumns(property_va, false);
+		}
+	}
+
+}

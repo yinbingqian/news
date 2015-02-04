@@ -4,5 +4,18 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_init">InitActivity</string>
+    <string name="jp_style_hint">style为数字</string>
+    <string name="jp_alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="jp_tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <!-- 财经要文 -->
+    <string name="news_title">新闻</string>
+    <string name="news_name">沪指放量大涨1.5% 上海自贸区概念股领涨</string>
+    <string name="news_time">09-30 8:30</string>
+    <string name="news_msg">今日，两市小幅高开后震荡上行。11:00过后，两市股指双双拉升，沪指涨逾1%。今日，两市小幅高开后震荡上行。11:00过后，两市股指双双拉升，沪指涨逾百分之一。午后，两市强势冲高，沪指最高涨百分之一点吧。两市成交量持续放大，均突破2000亿。截至收盘，沪指涨百分之一点五，报2373.03点，成交2251亿，深成指涨百分之一点二二，报8086.02点，成交2298亿。</string>
+    <!-- TabHost A -->
+    <string name="tabHost_frist_a">互动消息</string>
+    <string name="tabHost_second_a">发布消息</string>
+    <string name="tabHost_thrid_a">问题列表</string>
+    <string name="tabHost_fourth_a">顾问空间</string>
 
 </resources>

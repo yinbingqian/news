@@ -22,12 +22,9 @@ import android.widget.TextView;
 
 public class TabCommunicationActivity extends TabActivity{
 	Context context;
-	TextView textview;
+//	TextView textview;
 	
 	private PopupWindow popupWindow;
-	RadioGroup radioGroup;
-	TabHost tabHost;
-	TabHost.TabSpec tabSpec;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -68,16 +65,6 @@ public class TabCommunicationActivity extends TabActivity{
         // 设置动画效果  
         popupWindow.setAnimationStyle(R.style.AnimationFade);  
         
-		tabHost = getTabHost();
-		tabHost.addTab(tabHost.newTabSpec("news").setIndicator("news")
-				.setContent(new Intent(this, TabNewsActivity.class)));
-		tabHost.addTab(tabHost.newTabSpec("photo").setIndicator("photo")
-				.setContent(new Intent(this, TabPhotoActivity.class)));
-		tabHost.addTab(tabHost.newTabSpec("video").setIndicator("video")
-				.setContent(new Intent(this, TabVideoActivity.class)));
-
-		radioGroup = (RadioGroup) popupWindow_view.findViewById(R.id.radiogroup);
-		radioGroup.setOnCheckedChangeListener(checkedChangeListener);
         
         // 点击其他地方消失  
         popupWindow_view.setOnTouchListener(new OnTouchListener() {  
@@ -104,30 +91,5 @@ public class TabCommunicationActivity extends TabActivity{
             initPopuptWindow();  
         }  
     } 
-    private OnCheckedChangeListener checkedChangeListener = new OnCheckedChangeListener() {
-
-		@Override
-		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			DisplayMetrics metrics = new DisplayMetrics();
-			getWindowManager().getDefaultDisplay().getMetrics(metrics);
-			int x = metrics.widthPixels / 3;
-			if (popupWindow != null && popupWindow.isShowing()) {  
-                popupWindow.dismiss();  
-                popupWindow = null;  
-            } 
-			switch (checkedId) {
-			case R.id.radio_news:
-				tabHost.setCurrentTabByTag("news");
-				break;
-			case R.id.radio_photo:
-				tabHost.setCurrentTabByTag("photo");
-				break;
-			case R.id.radio_video:
-				tabHost.setCurrentTabByTag("video");
-				break;
-			default:
-				break;
-			}
-		}
-	};
+    
 }  

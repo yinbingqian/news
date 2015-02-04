@@ -4,35 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="@color/white">
-<RelativeLayout
-        android:id="@+id/top_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@color/light_blue" >
-
-        <RelativeLayout
-            android:id="@+id/popBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/info_more_xml" >
-
-            <ImageView
-                android:layout_width="23dp"
-                android:layout_height="15dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/info_more" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/popBtn"
-            android:text="视频"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-    </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

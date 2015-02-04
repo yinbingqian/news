@@ -1,41 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/white">
-<RelativeLayout
-        android:id="@+id/top_layout"
+    android:background="@color/register_bg"
+    android:orientation="vertical"
+    tools:context=".Information_Activity" >
+
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@color/light_blue" >
+        android:layout_height="@dimen/normal_height54"
+        android:background="@color/light_blue"
+        android:orientation="vertical" >
 
-        <RelativeLayout
-            android:id="@+id/popBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/info_more_xml" >
-
-            <ImageView
-                android:layout_width="23dp"
-                android:layout_height="15dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/info_more" />
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_back" />
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/popBtn"
-            android:text="新闻"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/news_title"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="@dimen/textsize23"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_setting"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/setting"
+            android:visibility="gone" />
     </RelativeLayout>
-    <TextView
+
+    <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="新闻" />
+        android:layout_height="wrap_content" 
+        android:text="跳转新闻主页"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView_news"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:smoothScrollbar="true" />
 
 </LinearLayout>

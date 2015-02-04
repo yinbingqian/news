@@ -6,4 +6,29 @@
     <color name="white">#ffffff</color>
     <color name="gray">#B2B2B2</color>
     <color name="darker_gray">#2D2631</color>
+    <color name="lightgray">#E8E8E8</color>
+    <color name="blcak">#000000</color>
+    <!-- 灰色 -->
+    <color name="grey">#808080</color>
+    <color name="simple_grey">#BFBFBF</color>
+    <color name="deep_grey">#404040</color>
+    <color name="grey_s">#FAFAFA</color>
+    <color name="font_grey1">#999999</color>
+    <color name="font_grey2">#666666</color>
+    <color name="font_grey3">#CCCCCC</color>
+    <!-- 黄 -->
+    <color name="simple_yellow">#FFCC00</color>
+    <color name="yellow">#FF9900</color>
+    <color name="deep_yellow">#FF6600</color>
+    <!-- 黑灰 -->
+    <color name="blcak_grey">#3C3C3C</color>
+    <!-- 注册背景 -->
+    <color name="register_bg">#FAFAFA</color>
+    <color name="register_text_color">#666666</color>
+    <!-- 信息 -->
+    <color name="divider">#C9C9C9</color>
+    <color name="listview_item_tv_color">#959595</color>
+    <!-- 欢迎页 -->
+    <color name="welcome_textColor">#333333</color>
+    <color name="text_color">#990000</color>
 </resources>

@@ -1,2 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/com/sxit/activity/adviser/chatmsg/Chat_Activity.java=UTF-8
+encoding//src/com/sxit/activity/adviser/th/item/AdviserZone_Activity.java=UTF-8
+encoding//src/com/sxit/activity/adviser/th/item/adapter/Question_Adapter.java=UTF-8
+encoding//src/com/sxit/activity/base/BaseActivity.java=UTF-8
+encoding//src/com/sxit/activity/base/MyApplication.java=UTF-8
+encoding//src/com/sxit/activity/chatmsg/Chat_Activity.java=UTF-8
+encoding//src/com/sxit/activity/news/adapter/News_Adapter.java=UTF-8
+encoding//src/com/sxit/activity/th/TabHostAbstractActivity.java=UTF-8
+encoding//src/com/sxit/customview/LoadingPage.java=UTF-8
 encoding//src/lnpdit/operate/news/activity/LoginActivity.java=UTF-8
+encoding//src/lnpdit/operate/news/activity/TabNewsActivity.java=UTF-8

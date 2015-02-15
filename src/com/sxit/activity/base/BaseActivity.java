@@ -15,13 +15,15 @@ import cn.jpush.android.api.JPushInterface;
 
 import com.sxit.customview.LoadingPage;
 import com.sxit.customview.LoadingPage.ILoadingDo;
+import com.sxit.http.ISoapService;
+import com.sxit.http.SoapRes;
+import com.sxit.http.SoapService;
+import com.sxit.utils.EventCache;
+import com.umeng.analytics.MobclickAgent;
 //import com.sxit.db.DBHelper;
 //import com.sxit.entity.LoginUser;
 //import com.sxit.http.ISoapService;
-import com.sxit.http.SoapRes;
 //import com.sxit.http.SoapService;
-import com.sxit.utils.EventCache;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * sub Acy
@@ -30,7 +32,7 @@ import com.umeng.analytics.MobclickAgent;
  */
 public class BaseActivity extends Activity implements OnClickListener {
 	/** soapService **/
-//	public ISoapService soapService = new SoapService();
+	public ISoapService soapService = new SoapService();
 	/** loading **/
 	private LoadingPage loading;
 	private long exitTime;
@@ -49,8 +51,6 @@ public class BaseActivity extends Activity implements OnClickListener {
 		EventCache.errorHttp.unregister(this);
 		EventCache.errorHttp.register(this);
 		Log.d(TAG, "[ExampleApplication] onCreate");
-		JPushInterface.setDebugMode(true); // 璁剧疆寮�惎鏃ュ織,鍙戝竷鏃惰鍏抽棴鏃ュ織
-		JPushInterface.init(this); // 鍒濆鍖�JPush
 	}
 
 

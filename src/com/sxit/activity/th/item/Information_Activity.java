@@ -3,6 +3,8 @@ package com.sxit.activity.th.item;
 import java.util.ArrayList;
 import java.util.List;
 
+import lnpdit.operate.news.R;
+import lnpdit.operate.news.activity.news.News_Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,17 +14,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-//import com.sxit.activity.analystteaminfo.AnalystTeamInfo_Activity;
 import com.sxit.activity.base.BaseActivity;
 import com.sxit.activity.chatmsg.Chat_Activity;
-import com.sxit.activity.news.News_Activity;
 import com.sxit.activity.th.item.adapter.Information_Adapter;
 import com.sxit.activity.th.item.bean.Information_ListBean;
+import com.sxit.utils.EventCache;
+//import com.sxit.activity.analystteaminfo.AnalystTeamInfo_Activity;
 //import com.sxit.db.DBHelper;
 //import com.sxit.entity.eb.ChatMessageEB;
-import com.sxit.utils.EventCache;
-
-import lnpdit.operate.news.R;
 
 /**
  * 信息 Acy

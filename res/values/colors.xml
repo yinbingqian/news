@@ -31,4 +31,6 @@
     <!-- 欢迎页 -->
     <color name="welcome_textColor">#333333</color>
     <color name="text_color">#990000</color>
+    
+    <color name="progress_msg_text_dark_grey">#333333</color>
 </resources>

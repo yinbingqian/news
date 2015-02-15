@@ -61,11 +61,12 @@ public class News_Adapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		Instance.imageLoader.displayImage(list.get(position).getTemplate(), viewHolder.img_icon, Instance.new_s_options);
+		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
+//		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
 		viewHolder.tv_title.setText(list.get(position).getTitle());
 		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));
-		viewHolder.tv_date.setText(list.get(position).getCrtime());
-		viewHolder.tv_content.setText(list.get(position).getNewsTitle());
+		viewHolder.tv_date.setText(list.get(position).getCtime());
+		viewHolder.tv_content.setText(list.get(position).getContent());
 		viewHolder.tv_time.setVisibility(View.GONE);
 		return convertView;
 	}

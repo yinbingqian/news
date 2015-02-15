@@ -21,6 +21,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.sxit.utils.SOAP_UTILS;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -111,7 +113,8 @@ public class LoginActivity extends Activity {
 		HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
 		HttpClient httpClient = new DefaultHttpClient(httpParameters);
 		HttpPost httpPost = new HttpPost(
-				"http://200.20.31.226:8027/lnpdit/login");
+				SOAP_UTILS.IP + "/" + SOAP_UTILS.METHOD.METHOD_LOGIN);
+//				"http://200.20.30.235:8027/lnpdit/login");
 		// 添加http头信息
 		httpPost.addHeader("Content-Type", "application/json");
 		httpPost.addHeader("User-Agent", "imgfornote");

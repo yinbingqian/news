@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.sxit.activity.base.BaseActivity;
 import com.sxit.customview.FocusedtrueTV;
+import com.sxit.entity.news.FinNews;
 import com.sxit.entity.news.FinNewsInfo;
-import com.sxit.entity.news.FinNewsList;
 import com.sxit.http.SoapRes;
 import com.sxit.utils.SOAP_UTILS;
 
@@ -24,7 +23,7 @@ public class NewsInfo_Activity extends BaseActivity {
 	private ImageView img_back;
 	private FocusedtrueTV tv_title;
 	private WebView webView;
-	private FinNewsList newsList;
+	private FinNews newsList;
 	private FinNewsInfo newsInfo;
 
 	@Override
@@ -33,11 +32,11 @@ public class NewsInfo_Activity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		this.isParentActivity = false;
 		intent = getIntent();
-		newsList = (FinNewsList) intent.getSerializableExtra("finnewslist");
+		newsList = (FinNews) intent.getSerializableExtra("finnewslist");
 		initView();
 		setListeners();
-//		String[] property_va = new String[] { newsList.getId() };
-//		soapService.getNewsContent(property_va);
+		String[] property_va = new String[] { newsList.getId() };
+		soapService.getNewsContent(property_va);
 	}
 
 	private void initView() {
@@ -93,8 +92,8 @@ public class NewsInfo_Activity extends BaseActivity {
 	@Override
 	public void onEventMainThread(String method) {
 		if (method.equals(SOAP_UTILS.METHOD.GETNEWSCONTENT)) {
-//			String[] property_va = new String[] { newsList.getId() };
-//			soapService.getNewsContent(property_va);
+			String[] property_va = new String[] { newsList.getId() };
+			soapService.getNewsContent(property_va);
 		}
 	}
 }

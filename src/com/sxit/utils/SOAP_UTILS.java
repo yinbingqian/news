@@ -2,67 +2,69 @@ package com.sxit.utils;
 
 public class SOAP_UTILS {
 	public class METHOD {
-		// 分析师登陆信息--用户名|密码
+		// 登录方法
+		public static final String METHOD_LOGIN = "login";
+		// 通过新闻栏目返回新闻方法
+		public static final String GETCOLUMNSTONEWS = "columnstonews";
+		// 根据新闻id号，返回具体新闻内容方法
+		public static final String GETNEWSCONTENT = "news";
+		// 鍒嗘瀽甯堢櫥闄嗕俊鎭�-鐢ㄦ埛鍚峾瀵嗙爜
 		public static final String ADMINLOGIN = "AdminLogin";
-		// 问答回复信息添加
+		// 闂瓟鍥炲淇℃伅娣诲姞
 		public static final String COMMUNREPLYADD = "CommunReplyAdd";
-		// 问答信息添加
+		// 闂瓟淇℃伅娣诲姞
 		public static final String COMMUNICATIONADD = "CommunicationAdd";
-		// 分析师列表
+		// 鍒嗘瀽甯堝垪琛�
 		public static final String GETADMIN = "GetAdmin";
-		// 返回栏目信息
-		public static final String GETCOLUMNS = "GetColumns";
-		// 问答回复列表
+		// 闂瓟鍥炲鍒楄〃
 		public static final String GETCOMMUNREPLY = "GetCommunReply";
-		// 分析师回复列表
+		// 鍒嗘瀽甯堝洖澶嶅垪琛�
 		public static final String GETCOMMUNREPLYANA = "GetCommunReplyAna";
-		// 根据回复ID返回详细信息
+		// 鏍规嵁鍥炲ID杩斿洖璇︾粏淇℃伅
 		public static final String GETCOMMUNREPLYBYID = "GetCommunReplyByID";
-		// 问答分类显示
+		// 闂瓟鍒嗙被鏄剧ず
 		public static final String GETCOMMUNICATION = "GetCommunication";
-		// 用户个人全部问答列表
+		// 鐢ㄦ埛涓汉鍏ㄩ儴闂瓟鍒楄〃
 		public static final String GETCOMMUNICATIONALL = "GetCommunicationALL";
-		// 用户全部问答列表
+		// 鐢ㄦ埛鍏ㄩ儴闂瓟鍒楄〃
 		public static final String GETCOMMUNICATIONALLUSER = "GetCommunicationAllUser";
-		// 未解决问题
+		// 鏈В鍐抽棶棰�
 		public static final String GETCOMMUNICATIONANA = "GetCommunicationAna";
-		// 返回新闻内容
-		public static final String GETNEWSCONTENT = "GetNewsContent";
-		// 返回最新新闻列表
+		// 杩斿洖鏈�柊鏂伴椈鍒楄〃
 		public static final String GETNEWSTITLE = "GetNewsTitle";
-		// 接收消息首页信息 TOUSER：接收端用户ID
+		// 鎺ユ敹娑堟伅棣栭〉淇℃伅 TOUSER锛氭帴鏀剁鐢ㄦ埛ID
 		public static final String INTERACTIONHOMEPAGE = "InteractionHomepage";
-		// 接收用户获取推送信息 TOUSER：用户ID,HISTORYTIME：历史时间
+		// 鎺ユ敹鐢ㄦ埛鑾峰彇鎺ㄩ�淇℃伅 TOUSER锛氱敤鎴稩D,HISTORYTIME锛氬巻鍙叉椂闂�
 		public static final String INTERACTIONMESSAGE = "InteractionMessage";
-		// 接收用户获取推送信息 TOUSER：用户ID,HISTORYTIME：历史时间
+		// 鎺ユ敹鐢ㄦ埛鑾峰彇鎺ㄩ�淇℃伅 TOUSER锛氱敤鎴稩D,HISTORYTIME锛氬巻鍙叉椂闂�
 		public static final String INTERACTIONMESSAGEANA = "InteractionMessageAna";
-		// 接收用户获取推送信息 ID：消息ID,INFOTYPE:1消息/2研报，infoDirection:1用户-分析师/2分析师-用户
+		// 鎺ユ敹鐢ㄦ埛鑾峰彇鎺ㄩ�淇℃伅 ID锛氭秷鎭疘D,INFOTYPE:1娑堟伅/2鐮旀姤锛宨nfoDirection:1鐢ㄦ埛-鍒嗘瀽甯�2鍒嗘瀽甯�鐢ㄦ埛
 		public static final String INTERACTIONMESSAGEBYID = "InteractionMessageByID";
-		// 互动内容提交，DEVTYPE:1Android/2iPhone，infoType:1消息/2研报，infoDirection:1用户-分析师/2分析师-用户
+		// 浜掑姩鍐呭鎻愪氦锛孌EVTYPE:1Android/2iPhone锛宨nfoType:1娑堟伅/2鐮旀姤锛宨nfoDirection:1鐢ㄦ埛-鍒嗘瀽甯�2鍒嗘瀽甯�鐢ㄦ埛
 		public static final String INTERACTIONSUBMIT = "InteractionSubmit";
-		// 根据回复ID选择最佳答案
+		// 鏍规嵁鍥炲ID閫夋嫨鏈�匠绛旀
 		public static final String UPDATABESTANSWER = "UpdataBestAnswer";
-		// 用户登陆信息--用户名|密码
+		// 鐢ㄦ埛鐧婚檰淇℃伅--鐢ㄦ埛鍚峾瀵嗙爜
 		public static final String USERINFOLOGIN = "UserInfoLogin";
-		// 用户充值
+		// 鐢ㄦ埛鍏呭�
 		public static final String USERPAYMENT = "UserPayment";
-		// 用户注册
+		// 鐢ㄦ埛娉ㄥ唽
 		public static final String USERREGISTERED = "UserRegistered";
-		//密码重置
+		//瀵嗙爜閲嶇疆
 		public static final String USERPASSWORDRESET  = "UserPasswordReset ";
-		//用户名校验：返回true可用|false不可用
+		//鐢ㄦ埛鍚嶆牎楠岋細杩斿洖true鍙敤|false涓嶅彲鐢�
 		public static final String USERNAMECHECK = "UserNameCheck ";
-		//编辑信息options:1昵称;2性别;3股龄;4投资风格;
+		//缂栬緫淇℃伅options:1鏄电О;2鎬у埆;3鑲￠緞;4鎶曡祫椋庢牸;
 		public static final String USEREDITOR = "UserEditor";
-		//编辑城市信息
+		//缂栬緫鍩庡競淇℃伅
 		public static final String USEREDITOR_CITY = "UserEditor_city";
-		//编辑头像，其中images：图片的BASE64转码
+		//缂栬緫澶村儚锛屽叾涓璱mages锛氬浘鐗囩殑BASE64杞爜
 		public static final String USEREDITOR_HEAD = "UserEditor_head";
-		//研报列表
+		//鐮旀姤鍒楄〃
 		public static final String GETREPORTLIST = "GetReportList";
-		//研报提交，reportType:研报分类
+		//鐮旀姤鎻愪氦锛宺eportType:鐮旀姤鍒嗙被
 		public static final String REPORTSUBMIT = "ReportSubmit";
-		//返回研报内容
+		//杩斿洖鐮旀姤鍐呭
 		public static final String GETREPORTCONTENT = "GetReportContent";
 	}
 
@@ -72,17 +74,17 @@ public class SOAP_UTILS {
 		public static final String ERR0002 = "ERR 002";
 		public static final String ERR0003 = "ERR 003";
 		public static final String ERR0004 = "ERR 004";
-		public static final String ERR0005 = "ERR 005 XML解析错误";
-		public static final String ERR0006 = "ERR 006 本地错误";
+		public static final String ERR0005 = "ERR 005 XML瑙ｆ瀽閿欒";
+		public static final String ERR0006 = "ERR 006 鏈湴閿欒";
 
 	}
 
 	public static final String NAMESPACE = "MobileNewspaper";
 	// public static final String IP = "http://219.148.199.62/licai";
 	// public static final String IP = "http://219.148.199.62/licai";
-	public static final String IP = "http://218.60.13.9:8002";
+	public static final String IP = "http://200.20.30.212:8027/lnpdit";
 	public static final String HEADER_URL = "http://218.60.13.9:8002/upload/headpic/";
-	public static final String URL = IP + "/phoneinvoke.asmx?wsdl";
+	public static final String URL = IP + "/phoneinvoke.asmx";
 	public static final String URL_WITHOUT_WSDL = IP + "/phoneinvoke.asmx";
 	public static final String PIC_FILE = IP + "/manage/pic/";
 	public static final String PIC_JOURNAL = IP + "/manage/magpic/";
@@ -95,8 +97,8 @@ public class SOAP_UTILS {
 	public static final String HEAD_PIC_PATH = IP + "/upload/headpic/";
 	public static final String COLUMN_PIC_PATH = IP + "/upload/column/";
 	// login type
-	public static final int ADMIN = 0;// 顾问
-	public static final int USER = 1;// 投资者
+	public static final int ADMIN = 0;// 椤鹃棶
+	public static final int USER = 1;// 鎶曡祫鑰�
 	// definitions xmlns:s="http://www.w3.org/2001/XMLSchema"
 	// xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
 	// xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"

@@ -41,8 +41,8 @@ public class News_Activity extends BaseActivity {
 		this.isParentActivity = false;
 		initView();
 		setListeners();
-//		String[] property_va = new String[] { "10", pageIndex + "" };
-//		soapService.getColumns(property_va, false);
+		String[] property_va = new String[] { "5", "10", pageIndex + "" };
+		soapService.getColumns(property_va, false);
 //		dbh = new DBHelper(this);
 //		dbh.setMsgReaded(dbh.queryLoginUserInfo().getUserid(), "-1");
 	}
@@ -59,10 +59,16 @@ public class News_Activity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				Bundle bundle = new Bundle();
+//				bundle.putSerializable("finnews", list.get(position - 1));
+//				intent.putExtras(bundle);
+//				intent.setClass(News_Activity.this, NewsList_Activity.class);
+//				startActivity(intent);
+				
 				Bundle bundle = new Bundle();
-				bundle.putSerializable("finnews", list.get(position - 1));
+				bundle.putSerializable("finnewslist", list.get(position - 1));
 				intent.putExtras(bundle);
-				intent.setClass(News_Activity.this, NewsList_Activity.class);
+				intent.setClass(News_Activity.this, NewsInfo_Activity.class);
 				startActivity(intent);
 			}
 		});
@@ -104,8 +110,8 @@ public class News_Activity extends BaseActivity {
 		@Override
 		protected void onPostExecute(String result) {
 			pageIndex = 1;
-//			String[] property_va = new String[] { "10", pageIndex + "", getLoginUser().getUserid() };
-//			soapService.getColumns(property_va, false);
+			String[] property_va = new String[] { "5", "10", "" + pageIndex };
+			soapService.getColumns(property_va, false);
 			super.onPostExecute(result);
 		}
 	}
@@ -138,7 +144,7 @@ public class News_Activity extends BaseActivity {
 
 	public void onEvent(SoapRes obj) {
 		super.onEvent(obj);
-		if (obj.getCode().equals(SOAP_UTILS.METHOD.GETCOLUMNS)) {
+		if (obj.getCode().equals(SOAP_UTILS.METHOD.GETCOLUMNSTONEWS)) {
 			if (obj.isPage()) {
 				for (FinNews bean : (List<FinNews>) obj.getObj()) {
 					list.add(bean);
@@ -159,9 +165,9 @@ public class News_Activity extends BaseActivity {
 
 	@Override
 	public void onEventMainThread(String method) {
-		if (method.equals(SOAP_UTILS.METHOD.GETCOLUMNS)) {
-//			String[] property_va = new String[] { "10", pageIndex + "" };
-//			soapService.getColumns(property_va, false);
+		if (method.equals(SOAP_UTILS.METHOD.GETCOLUMNSTONEWS)) {
+			String[] property_va = new String[] { "5", "10", pageIndex + "" };
+			soapService.getColumns(property_va, false);
 		}
 	}
 

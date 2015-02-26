@@ -30,5 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
         android:text="跳转新闻主页"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:text="话题主页"/>
 
 </LinearLayout>

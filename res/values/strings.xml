@@ -17,5 +17,8 @@
     <string name="tabHost_second_a">发布消息</string>
     <string name="tabHost_thrid_a">问题列表</string>
     <string name="tabHost_fourth_a">顾问空间</string>
+    <!-- 论坛分类 -->
+    <string name="category_title">话题</string>
+    <string name="search_topic">  搜吧、搜贴</string>
 
 </resources>

@@ -93,6 +93,7 @@ public class LoginActivity extends Activity {
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
+							Log.e("Login Error:", e.toString());
 						}
 					}
 				});

@@ -8,8 +8,8 @@ public class SOAP_UTILS {
 		public static final String GETCOLUMNSTONEWS = "columnstonews";
 		// 根据新闻id号，返回具体新闻内容方法
 		public static final String GETNEWSCONTENT = "news";
-		// 鍒嗘瀽甯堢櫥闄嗕俊鎭�-鐢ㄦ埛鍚峾瀵嗙爜
-		public static final String ADMINLOGIN = "AdminLogin";
+		// 话题类列表
+		public static final String COMMUNICATIONLIST = "communicationlist";
 		// 闂瓟鍥炲淇℃伅娣诲姞
 		public static final String COMMUNREPLYADD = "CommunReplyAdd";
 		// 闂瓟淇℃伅娣诲姞
@@ -82,7 +82,9 @@ public class SOAP_UTILS {
 	public static final String NAMESPACE = "MobileNewspaper";
 	// public static final String IP = "http://219.148.199.62/licai";
 	// public static final String IP = "http://219.148.199.62/licai";
-	public static final String IP = "http://200.20.30.212:8027/lnpdit";
+//	public static final String IP = "http://200.20.30.212:8027/lnpdit";
+//	public static final String IP = "http://219.148.199.62:8027/lnpdit";
+	public static final String IP = "http://200.20.31.37:8027/lnpdit";//wz的
 	public static final String HEADER_URL = "http://218.60.13.9:8002/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx";
 	public static final String URL_WITHOUT_WSDL = IP + "/phoneinvoke.asmx";

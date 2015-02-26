@@ -153,6 +153,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="lnpdit.operate.news.forum.CategoryItemActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_init" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

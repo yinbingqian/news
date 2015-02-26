@@ -16,8 +16,6 @@ import org.json.JSONObject;
 import com.sxit.utils.SOAP_UTILS;
 
 import lnpdit.operate.news.R;
-import lnpdit.operate.news.activity.LoginActivity;
-import lnpdit.operate.news.activity.MainActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,7 +26,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -142,6 +139,13 @@ public class CategoryActivity extends Activity {
 		personal_layout3.setVisibility(8);
 		personal_layout4.setVisibility(8);
 		personal_layout5.setVisibility(8);
+		
+		recommended_layout1.setVisibility(8);
+		recommended_layout2.setVisibility(8);
+		recommended_layout3.setVisibility(8);
+		recommended_layout4.setVisibility(8);
+		recommended_layout5.setVisibility(8);
+		
 		recommended_layout1.setClickable(true);
 		recommended_layout2.setClickable(true);
 		recommended_layout3.setClickable(true);
@@ -206,6 +210,11 @@ public class CategoryActivity extends Activity {
 		Editor editor = sp.edit();// 获取编辑器
 		editor.putString("mycategory", category_new);
 		editor.commit();
+		
+		Intent intent = new Intent();
+		intent.putExtra("Title", name);
+		intent.setClass(CategoryActivity.this, CategoryItemActivity.class);
+		startActivity(intent);
 	}
 
 	private android.view.View.OnClickListener listener = new View.OnClickListener() {
@@ -215,24 +224,19 @@ public class CategoryActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.personal_layout1:
-				Toast.makeText(context, "personal_layout1", Toast.LENGTH_LONG)
-						.show();
+				recommendedClick(txt1.getText().toString());
 				break;
 			case R.id.personal_layout2:
-				Toast.makeText(context, "personal_layout2", Toast.LENGTH_LONG)
-						.show();
+				recommendedClick(txt2.getText().toString());
 				break;
 			case R.id.personal_layout3:
-				Toast.makeText(context, "personal_layout3", Toast.LENGTH_LONG)
-						.show();
+				recommendedClick(txt3.getText().toString());
 				break;
 			case R.id.personal_layout4:
-				Toast.makeText(context, "personal_layout4", Toast.LENGTH_LONG)
-						.show();
+				recommendedClick(txt4.getText().toString());
 				break;
 			case R.id.personal_layout5:
-				Toast.makeText(context, "personal_layout5", Toast.LENGTH_LONG)
-						.show();
+				recommendedClick(txt5.getText().toString());
 				break;
 			case R.id.recommended_layout1:
 				recommendedClick(txt11.getText().toString());
@@ -297,11 +301,6 @@ public class CategoryActivity extends Activity {
 //						startActivity(intent);
 //						startService(intent);
 //					}
-					recommended_layout1.setVisibility(8);
-					recommended_layout2.setVisibility(8);
-					recommended_layout3.setVisibility(8);
-					recommended_layout4.setVisibility(8);
-					recommended_layout5.setVisibility(8);
 					int j = json_array.length();
 						if (j > 0) {
 							recommended_layout1.setVisibility(1);

@@ -1,11 +1,31 @@
 package lnpdit.operate.news.forum;
 
+import java.io.IOException;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.sxit.utils.SOAP_UTILS;
+
 import lnpdit.operate.news.R;
+import lnpdit.operate.news.activity.LoginActivity;
+import lnpdit.operate.news.activity.MainActivity;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -51,34 +71,32 @@ public class CategoryActivity extends Activity {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
-				// Log.d("news", "clicked");
-				// HttpClient client = new DefaultHttpClient();
-				// // 鍒涘缓涓�釜GET璇锋眰
-				// HttpGet httpGet = new HttpGet(
-				// "http://200.20.30.142:8027/lnpdit/loginbysim/18940052640");
-				// // HttpGet httpGet=new
-				// // HttpGet("http://200.20.30.201:8027/lnpdit");
-				// // 鍚戞湇鍔″櫒鍙戦�璇锋眰骞惰幏鍙栨湇鍔″櫒杩斿洖鐨勭粨鏋�
-				// HttpResponse response;
-				// try {
-				// response = client.execute(httpGet);
-				// HttpEntity entity = response.getEntity();
-				// // 杩斿洖鐨勭粨鏋滃彲鑳芥斁鍒癐nputStream锛宧ttp Header涓瓑銆�
-				//
-				// // 璁块棶REST鏈嶅姟绾跨▼锛屽皢缁撴灉浼犻�缁檋andler
-				// Message msg = new Message();
-				// msg.arg1 = 0;
-				// msg.obj = EntityUtils.toString(entity);
-				// threadMessageHandler.sendMessage(msg);
-				// Log.d("news", "sended");
-				// } catch (ClientProtocolException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// } catch (IOException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
+//				 Log.d("news", "clicked");
+				 HttpClient client = new DefaultHttpClient();
+				 HttpGet httpGet = new HttpGet(
+				 SOAP_UTILS.IP + "/" + SOAP_UTILS.METHOD.COMMUNICATIONLIST + "/" + 0);
+				 // HttpGet httpGet=new
+				 // HttpGet("http://200.20.30.201:8027/lnpdit");
+				 // 鍚戞湇鍔″櫒鍙戦�璇锋眰骞惰幏鍙栨湇鍔″櫒杩斿洖鐨勭粨鏋�
+				 HttpResponse response;
+				 try {
+				 response = client.execute(httpGet);
+				 HttpEntity entity = response.getEntity();
+				 // 杩斿洖鐨勭粨鏋滃彲鑳芥斁鍒癐nputStream锛宧ttp Header涓瓑銆�
+				
+				 // 璁块棶REST鏈嶅姟绾跨▼锛屽皢缁撴灉浼犻�缁檋andler
+				 Message msg = new Message();
+				 msg.arg1 = 0;
+				 msg.obj = EntityUtils.toString(entity);
+				 threadMessageHandler.sendMessage(msg);
+//				 Log.d("news", "sended");
+				 } catch (ClientProtocolException e) {
+				 // TODO Auto-generated catch block
+				 e.printStackTrace();
+				 } catch (IOException e) {
+				 // TODO Auto-generated catch block
+				 e.printStackTrace();
+				 }
 				try {
 					
 				} catch (Exception e) {
@@ -237,5 +255,84 @@ public class CategoryActivity extends Activity {
 			}
 		}
 	};
+	Handler threadMessageHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			if (msg.arg1 == 0) {
 
+//				Log.d("news", "recieved");
+				String res_is = (String) msg.obj;
+
+				try {
+					JSONArray json_array = new JSONArray(res_is);
+					if (json_array.length() != 0) {
+						for (int i = 0; i < json_array.length(); i++) {
+							JSONObject json_all = json_array.getJSONObject(i);
+				//{"Id":25,"Orders":0,"ParentId":0,"Remark":"","Template":"","Title":"地方话题","Value":"4"},
+					String Id = json_all.getString("Id");
+					String Orders = json_all.getString("Orders");
+					String ParentId = json_all.getString("ParentId");
+					String Remark = json_all.getString("Remark");
+					String Template = json_all.getString("Template");
+					String Title = json_all.getString("Title");
+					String Value = json_all.getString("Value");
+
+					// shared
+					Context ctx = CategoryActivity.this;  
+					SharedPreferences sp = ctx.getSharedPreferences("SP",
+							MODE_PRIVATE);
+					Editor editor = sp.edit();
+					editor.putString("Id", Id);
+					editor.putString("Orders", Orders);
+					editor.putString("ParentId", ParentId);
+					editor.putString("Remark", Remark);
+					editor.putString("Template", Template);
+					editor.putString("Title", Title);
+					editor.putString("Value", Value);
+					editor.commit();
+					
+//					if (!Id.equals("0")) {
+//						Intent intent = new Intent();
+//						intent.setClass(CategoryActivity.this, MainActivity.class);
+//						startActivity(intent);
+//						startService(intent);
+//					}
+					recommended_layout1.setVisibility(8);
+					recommended_layout2.setVisibility(8);
+					recommended_layout3.setVisibility(8);
+					recommended_layout4.setVisibility(8);
+					recommended_layout5.setVisibility(8);
+					int j = json_array.length();
+						if (j > 0) {
+							recommended_layout1.setVisibility(1);
+							txt11.setText(json_array.getJSONObject(0).getString("Title"));
+							if (j > 1) {
+								recommended_layout2.setVisibility(1);
+								txt12.setText(json_array.getJSONObject(1).getString("Title"));
+								if (j > 2) {
+									recommended_layout3.setVisibility(1);
+									txt13.setText(json_array.getJSONObject(2).getString("Title"));
+									if (j > 3) {
+										recommended_layout4.setVisibility(1);
+										txt14.setText(json_array.getJSONObject(3).getString("Title"));
+										if (j > 4) {
+											recommended_layout5.setVisibility(1);
+											txt15.setText(json_array.getJSONObject(4).getString("Title"));
+										}
+									}
+								}
+							}
+						}
+					
+//					Toast.makeText(ctx, Id, Toast.LENGTH_LONG).show();
+						}
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		}
+	};
 }

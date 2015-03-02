@@ -100,6 +100,8 @@ public interface ISoapService extends IASoapService{
 	 * @param property_va
 	 */
 	void getNewsTitle(Object[] property_va, boolean isPage);
+	
+	void getCategoryTitle(Object[] property_va, boolean isPage);
 
 	/**
 	 * 鎺ユ敹娑堟伅棣栭〉淇℃伅 toUser锛氭帴鏀剁鐢ㄦ埛id

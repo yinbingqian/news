@@ -173,7 +173,7 @@ public class CategoryActivity extends Activity {
 			if (!category_array[i].equals(name)) {
 				category_new = category_new + "," + category_array[i];
 			}
-			if (!category_array[i].equals(id)) {
+			if (!categoryid_array[i].equals(id)) {
 				categoryid_new = categoryid_new + "," + categoryid_array[i];
 			}
 			

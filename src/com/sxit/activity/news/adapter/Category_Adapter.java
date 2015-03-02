@@ -11,17 +11,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sxit.activity.th.item.bean.Information_ListBean;
-import com.sxit.entity.news.FinNews;
-import com.sxit.instance.Instance;
-import com.sxit.utils.SOAP_UTILS;
+import com.sxit.entity.category.FinCategory;
 
 
-public class News_Adapter extends BaseAdapter {
+public class Category_Adapter extends BaseAdapter {
 	private Context context;
-	private List<FinNews> list;
+	private List<FinCategory> list;
 
-	public News_Adapter(Context context, List<FinNews> list) {
+	public Category_Adapter(Context context, List<FinCategory> list) {
 		this.context = context;
 		this.list = list;
 	}
@@ -45,7 +42,7 @@ public class News_Adapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder = null;
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.activity_information_item, null);
+			convertView = LayoutInflater.from(context).inflate(R.layout.activity_categoryinformation_item, null);
 			viewHolder = new ViewHolder();
 			viewHolder.img_icon = (ImageView) convertView.findViewById(R.id.img_icon);
 			viewHolder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
@@ -57,11 +54,11 @@ public class News_Adapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
+//		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
 		viewHolder.tv_title.setText(list.get(position).getTitle());
 		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));
-		viewHolder.tv_date.setText(list.get(position).getCtime());
+//		viewHolder.tv_date.setText(list.get(position).getCtime());
 		viewHolder.tv_content.setText(list.get(position).getContent());
 		viewHolder.tv_time.setVisibility(View.GONE);
 		return convertView;
@@ -69,10 +66,10 @@ public class News_Adapter extends BaseAdapter {
 
 	static class ViewHolder {
 		public ImageView img_icon;// icon
-		public TextView tv_title;// ÂêçÁß∞
-		public TextView tv_date;// Êó∂Èó¥
-		public TextView tv_analyst;// ÂàÜÊûêÂ∏à
-		public TextView tv_content;// ÂÜÖÂÆπ
-		public TextView tv_time;// ÂÖ≥Ê≥®Ê¨°Êï∞
+		public TextView tv_title;// √˚≥∆
+		public TextView tv_date;//  ±º‰
+		public TextView tv_analyst;// ∑÷Œˆ ¶
+		public TextView tv_content;// ƒ⁄»›
+		public TextView tv_time;// πÿ◊¢¥Œ ˝
 	}
 }

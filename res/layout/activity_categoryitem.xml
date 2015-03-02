@@ -41,4 +41,17 @@
             android:background="@drawable/add_white"
             android:onClick="refreshContact" />
     </RelativeLayout>
+    
+     <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView_category"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:smoothScrollbar="true" />
 </LinearLayout>

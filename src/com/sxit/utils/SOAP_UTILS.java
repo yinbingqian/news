@@ -8,10 +8,12 @@ public class SOAP_UTILS {
 		public static final String GETCOLUMNSTONEWS = "columnstonews";
 		// 根据新闻id号，返回具体新闻内容方法
 		public static final String GETNEWSCONTENT = "news";
-		// 话题类列表
+		// 栏目关联话题
 		public static final String COMMUNICATIONLIST = "communicationlist";
-		// 闂瓟鍥炲淇℃伅娣诲姞
-		public static final String COMMUNREPLYADD = "CommunReplyAdd";
+		// 话题列表
+		public static final String COMMUNICATION = "communication";
+		// 杩斿洖鏈�柊鏂伴椈鍒楄〃
+		public static final String GETNEWSTITLE = "GetNewsTitle";
 		// 闂瓟淇℃伅娣诲姞
 		public static final String COMMUNICATIONADD = "CommunicationAdd";
 		// 鍒嗘瀽甯堝垪琛�
@@ -30,8 +32,7 @@ public class SOAP_UTILS {
 		public static final String GETCOMMUNICATIONALLUSER = "GetCommunicationAllUser";
 		// 鏈В鍐抽棶棰�
 		public static final String GETCOMMUNICATIONANA = "GetCommunicationAna";
-		// 杩斿洖鏈�柊鏂伴椈鍒楄〃
-		public static final String GETNEWSTITLE = "GetNewsTitle";
+	
 		// 鎺ユ敹娑堟伅棣栭〉淇℃伅 TOUSER锛氭帴鏀剁鐢ㄦ埛ID
 		public static final String INTERACTIONHOMEPAGE = "InteractionHomepage";
 		// 鎺ユ敹鐢ㄦ埛鑾峰彇鎺ㄩ�淇℃伅 TOUSER锛氱敤鎴稩D,HISTORYTIME锛氬巻鍙叉椂闂�
@@ -85,6 +86,7 @@ public class SOAP_UTILS {
 //	public static final String IP = "http://200.20.30.212:8027/lnpdit";
 //	public static final String IP = "http://219.148.199.62:8027/lnpdit";
 	public static final String IP = "http://200.20.31.37:8027/lnpdit";//wz的
+//	public static final String IP = "http://218.60.13.9:8027/:8027/lnpdit";//服务器
 	public static final String HEADER_URL = "http://218.60.13.9:8002/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx";
 	public static final String URL_WITHOUT_WSDL = IP + "/phoneinvoke.asmx";

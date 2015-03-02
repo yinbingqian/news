@@ -22,6 +22,7 @@
     <color name="deep_yellow">#FF6600</color>
     <!-- 黑灰 -->
     <color name="blcak_grey">#3C3C3C</color>
+    
     <!-- 注册背景 -->
     <color name="register_bg">#FAFAFA</color>
     <color name="register_text_color">#666666</color>

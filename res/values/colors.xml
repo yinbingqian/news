@@ -12,6 +12,7 @@
     <color name="grey">#808080</color>
     <color name="simple_grey">#BFBFBF</color>
     <color name="deep_grey">#404040</color>
+    <color name="background_grey">#2d2631</color>
     <color name="grey_s">#FAFAFA</color>
     <color name="font_grey1">#999999</color>
     <color name="font_grey2">#666666</color>

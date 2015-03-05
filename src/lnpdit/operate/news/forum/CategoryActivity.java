@@ -16,6 +16,9 @@ import org.json.JSONObject;
 import com.sxit.utils.SOAP_UTILS;
 
 import lnpdit.operate.news.R;
+import lnpdit.operate.news.activity.TabNewsActivity;
+import lnpdit.operate.news.activity.news.NewsInfo_Activity;
+import lnpdit.operate.news.activity.news.News_Activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,9 +29,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class CategoryActivity extends Activity {
 	Context context;
@@ -52,6 +58,7 @@ public class CategoryActivity extends Activity {
 	TextView txt13;
 	TextView txt14;
 	TextView txt15;
+	Button add_bt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +128,18 @@ public class CategoryActivity extends Activity {
 		txt13 = (TextView) findViewById(R.id.txt13);
 		txt14 = (TextView) findViewById(R.id.txt14);
 		txt15 = (TextView) findViewById(R.id.txt15);
+		
+		add_bt = (Button) findViewById(R.id.add_bt);
+		add_bt.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(CategoryActivity.this, CategoryRelease_Activity.class);
+				startActivity(intent);
+			}
+		});
 
 		personal_layout1.setClickable(true);
 		personal_layout2.setClickable(true);

@@ -85,8 +85,8 @@ public class SOAP_UTILS {
 	// public static final String IP = "http://219.148.199.62/licai";
 //	public static final String IP = "http://200.20.30.212:8027/lnpdit";
 //	public static final String IP = "http://219.148.199.62:8027/lnpdit";
-	public static final String IP = "http://200.20.31.37:8027/lnpdit";//wz的
-//	public static final String IP = "http://218.60.13.9:8027/:8027/lnpdit";//服务器
+//	public static final String IP = "http://200.20.31.37:8027/lnpdit";//wz的
+	public static final String IP = "http://218.60.13.9:8027/:8027/lnpdit";//服务器
 	public static final String HEADER_URL = "http://218.60.13.9:8002/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx";
 	public static final String URL_WITHOUT_WSDL = IP + "/phoneinvoke.asmx";

@@ -19,6 +19,9 @@
     <string name="tabHost_fourth_a">顾问空间</string>
     <!-- 论坛分类 -->
     <string name="category_title">话题</string>
+    <string name="category_releasetitle">发布话题</string>
+    <string name="category_name">张忠波</string>
+    <string name="category_time">2015/01/29 09:09:39</string>
     <string name="search_topic">  搜吧、搜贴</string>
 
 </resources>

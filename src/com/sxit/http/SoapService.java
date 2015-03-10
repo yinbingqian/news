@@ -11,6 +11,7 @@ import org.ksoap2.serialization.SoapObject;
 import android.util.Log;
 
 import com.sxit.entity.category.FinCategory;
+import com.sxit.entity.category.FinCategoryInfo;
 import com.sxit.entity.news.FinNews;
 import com.sxit.entity.news.FinNewsInfo;
 import com.sxit.http.AsyncTaskBase.SoapObjectResult;
@@ -36,7 +37,7 @@ public class SoapService implements ISoapService {
 
 				try {
 					JSONArray json_array = new JSONArray(res_is);
-					
+
 					List<FinNews> list = new ArrayList<FinNews>();
 					if (json_array.length() != 0) {
 						for (int i = 0; i < json_array.length(); i++) {
@@ -51,13 +52,14 @@ public class SoapService implements ISoapService {
 							String Genid = json_all.getString("Genid");
 							String Id = json_all.getString("Id");
 							String Important = json_all.getString("Important");
-							String IsRecommend = json_all.getString("IsRecommend");
+							String IsRecommend = json_all
+									.getString("IsRecommend");
 							String Orders = json_all.getString("Orders");
 							String Picture = json_all.getString("Picture");
 							String Thumbnail = json_all.getString("Thumbnail");
 							String Title = json_all.getString("Title");
 							String Type = json_all.getString("Type");
-							
+
 							FinNews bean = new FinNews();
 							bean.setId(Id);
 							bean.setCol(Col);
@@ -80,10 +82,10 @@ public class SoapService implements ISoapService {
 					soapRes.setPage(isPage);
 					soapRes.setCode(SOAP_UTILS.METHOD.GETCOLUMNSTONEWS);
 					EventCache.commandActivity.post(soapRes);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			@Override
@@ -99,61 +101,61 @@ public class SoapService implements ISoapService {
 	@Override
 	public void adminLogin(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void communReplyAdd(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void communicationAdd(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getAdmin(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunReplyAna(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunReplyByID(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunication(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunicationALL(Object[] property_va, boolean isPage) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunicationAllUser(Object[] property_va, boolean isPage) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getCommunicationAna(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -169,48 +171,48 @@ public class SoapService implements ISoapService {
 			public void soapResult(String obj) {
 				String res_is = obj;
 
-					try {
-						JSONObject json_news = new JSONObject(res_is);
-						
-						String Col = json_news.getString("Col");
-						String ColName = json_news.getString("ColName");
-						String Content = json_news.getString("Content");
-						String Crtime = json_news.getString("Crtime");
-						String Ctime = json_news.getString("Ctime");
-						String Genid = json_news.getString("Genid");
-						String Id = json_news.getString("Id");
-						String Important = json_news.getString("Important");
-						String IsRecommend = json_news.getString("IsRecommend");
-						String Orders = json_news.getString("Orders");
-						String Picture = json_news.getString("Picture");
-						String Thumbnail = json_news.getString("Thumbnail");
-						String Title = json_news.getString("Title");
-						String Type = json_news.getString("Type");
-						
-						FinNewsInfo bean = new FinNewsInfo();
-						bean.setId(Id);
-						bean.setCol(Col);
-						bean.setColName(ColName);
-						bean.setContent(Content);
-						bean.setCrtime(Crtime);
-						bean.setCtime(Ctime);
-						bean.setGenid(Genid);
-						bean.setImportant(Important);
-						bean.setIsRecommend(IsRecommend);
-						bean.setOrders(Orders);
-						bean.setPicture(Picture);
-						bean.setThumbnail(Thumbnail);
-						bean.setTitle(Title);
-						bean.setType(Type);
-						
-						soapRes.setObj(bean);
-//						soapRes.setPage(isPage);
-						soapRes.setCode(SOAP_UTILS.METHOD.GETNEWSCONTENT);
-						EventCache.commandActivity.post(soapRes);
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+				try {
+					JSONObject json_news = new JSONObject(res_is);
+
+					String Col = json_news.getString("Col");
+					String ColName = json_news.getString("ColName");
+					String Content = json_news.getString("Content");
+					String Crtime = json_news.getString("Crtime");
+					String Ctime = json_news.getString("Ctime");
+					String Genid = json_news.getString("Genid");
+					String Id = json_news.getString("Id");
+					String Important = json_news.getString("Important");
+					String IsRecommend = json_news.getString("IsRecommend");
+					String Orders = json_news.getString("Orders");
+					String Picture = json_news.getString("Picture");
+					String Thumbnail = json_news.getString("Thumbnail");
+					String Title = json_news.getString("Title");
+					String Type = json_news.getString("Type");
+
+					FinNewsInfo bean = new FinNewsInfo();
+					bean.setId(Id);
+					bean.setCol(Col);
+					bean.setColName(ColName);
+					bean.setContent(Content);
+					bean.setCrtime(Crtime);
+					bean.setCtime(Ctime);
+					bean.setGenid(Genid);
+					bean.setImportant(Important);
+					bean.setIsRecommend(IsRecommend);
+					bean.setOrders(Orders);
+					bean.setPicture(Picture);
+					bean.setThumbnail(Thumbnail);
+					bean.setTitle(Title);
+					bean.setType(Type);
+
+					soapRes.setObj(bean);
+					// soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETNEWSCONTENT);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			@Override
@@ -225,109 +227,109 @@ public class SoapService implements ISoapService {
 	@Override
 	public void getNewsTitle(Object[] property_va, boolean isPage) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void interactionHomepage(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void interactionMessage(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void interactionMessageAna(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void interactionMessageByID(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void interactionSubmit(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updataBestAnswer(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userInfoLogin(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userPayment(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userRegistered(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userPasswordReset(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userNameCheck(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userEditor(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userEditor_city(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void userEditor_head(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getReportList(Object[] property_va, boolean isPage) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void reportSubmit(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void getReportContent(Object[] property_va) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -346,7 +348,7 @@ public class SoapService implements ISoapService {
 
 				try {
 					JSONArray json_array = new JSONArray(res_is);
-					
+
 					List<FinCategory> list = new ArrayList<FinCategory>();
 					if (json_array.length() != 0) {
 						for (int i = 0; i < json_array.length(); i++) {
@@ -361,7 +363,7 @@ public class SoapService implements ISoapService {
 							String Title = json_all.getString("Title");
 							String Type = json_all.getString("Type");
 							String Userid = json_all.getString("Userid");
-							
+
 							FinCategory bean = new FinCategory();
 							bean.setId(Id);
 							bean.setContent(Content);
@@ -380,10 +382,10 @@ public class SoapService implements ISoapService {
 					soapRes.setPage(isPage);
 					soapRes.setCode(SOAP_UTILS.METHOD.COMMUNICATION);
 					EventCache.commandActivity.post(soapRes);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			@Override
@@ -395,5 +397,64 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
+	public void getCategoryContent(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = { "id" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.COMMUNREPLY);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new SoapObjectResult() {
+
+			@Override
+			public void soapResult(String obj) {
+				String res_is = obj;
+				// [{"Content":"手机报标准化平台相关内容回复","Crtime":"2015\/2\/28
+				// 14:52:00","Id":1,"RealName":"王卓","Reply":1,"Type":"1","Userid":1}]
+				try {
+					JSONArray json_array = new JSONArray(res_is);
+
+					List<FinCategoryInfo> list = new ArrayList<FinCategoryInfo>();
+					if (json_array.length() != 0) {
+						for (int i = 0; i < json_array.length(); i++) {
+							JSONObject json_category = json_array.getJSONObject(i);
+
+							String Content = json_category.getString("Content");
+							String Crtime = json_category.getString("Crtime");
+							String Id = json_category.getString("Id");
+							String RealName = json_category
+									.getString("RealName");
+							String Reply = json_category.getString("Reply");
+							String Type = json_category.getString("Type");
+							String Userid = json_category.getString("Userid");
+
+							FinCategoryInfo bean = new FinCategoryInfo();
+							bean.setContent(Content);
+							bean.setCrtime(Crtime);
+							bean.setId(Id);
+							bean.setRealName(RealName);
+							bean.setReply(Reply);
+							bean.setType(Type);
+							bean.setUserid(Userid);
+							list.add(bean);
+						}
+					}
+					soapRes.setObj(list);
+					// soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.COMMUNREPLY);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.COMMUNREPLY);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
 }

@@ -163,7 +163,7 @@ public class LoginActivity extends Activity {
 
 					String ctimestr = person.getString("ctimestr");
 					String groupId = person.getString("groupId");
-					String headpic = person.getString("headpic");
+//					String headpic = person.getString("headpic");
 					String id = person.getString("id");
 					String imei = person.getString("imei");
 					String islock = person.getString("islock");
@@ -186,7 +186,7 @@ public class LoginActivity extends Activity {
 					Editor editor = sp.edit();
 					editor.putString("ctimestr", ctimestr);
 					editor.putString("groupId", groupId);
-					editor.putString("headpic", headpic);
+//					editor.putString("headpic", headpic);
 					editor.putString("id", id);
 					editor.putString("imei", imei);
 					editor.putString("islock", islock);

@@ -93,6 +93,7 @@ public interface ISoapService extends IASoapService{
 	 * @param property_va
 	 */
 	void getNewsContent(Object[] property_va);
+	void getCategoryContent(Object[] property_va);
 
 	/**
 	 * 杩斿洖鏈�柊鏂伴椈鍒楄〃

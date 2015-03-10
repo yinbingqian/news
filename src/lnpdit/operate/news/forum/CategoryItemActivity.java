@@ -52,6 +52,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.sxit.activity.base.BaseActivity;
 
+@SuppressWarnings("unused")
 public class CategoryItemActivity extends BaseActivity{
 	Context context;
 	TextView ht_title;
@@ -101,10 +102,20 @@ public class CategoryItemActivity extends BaseActivity{
 //				intent.setClass(News_Activity.this, NewsList_Activity.class);
 //				startActivity(intent);
 				
-				Bundle bundle = new Bundle();
-				bundle.putSerializable("fincategorylist", list.get(position - 1));
-				intent.putExtras(bundle);
-				intent.setClass(CategoryItemActivity.this, CategoryInfo_Activity.class);
+//				Bundle bundle = new Bundle();
+//				bundle.putSerializable("fincategorylist", list.get(position - 1));
+//				intent.putExtras(bundle);
+				String topicid = list.get(position - 1).getId();
+				String topictitle = list.get(position - 1).getTitle();
+				String username = list.get(position - 1).getUserName();
+				String topictime = list.get(position - 1).getCtime();
+				String topiccontent = list.get(position - 1).getContent();
+				intent.putExtra("Id", topicid);
+				intent.putExtra("title_title_tv", topictitle);
+				intent.putExtra("title_name_tv", username);
+				intent.putExtra("title_crtime_tv", topictime);
+				intent.putExtra("title_content_tv", topiccontent);
+				intent.setClass(CategoryItemActivity.this, CategoryReply_Activity.class);
 				startActivity(intent);
 			}
 		});

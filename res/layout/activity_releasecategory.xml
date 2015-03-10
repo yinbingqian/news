@@ -50,14 +50,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
+            <EditText
                 android:id="@+id/tv_title"
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@null"
                 android:gravity="left"
+                android:hint="请输入您要发布的标题... ..."
+                android:inputType="textNoSuggestions"
                 android:maxLines="2"
-                android:text="@string/news_name"
-                android:textColor="@color/welcome_textColor"
+                android:textColor="@color/grey"
                 android:textSize="17sp" />
 
             <TextView
@@ -97,12 +99,12 @@
         android:id="@+id/releasecatogery_btn"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
         android:layout_marginLeft="@dimen/marging15"
         android:layout_marginRight="@dimen/marging15"
         android:background="@color/light_blue"
         android:text="@string/category_releasetitle"
         android:textColor="@color/white"
-        android:textSize="@dimen/textsize20"
-        android:layout_gravity="center" />
+        android:textSize="@dimen/textsize20" />
 
 </LinearLayout>

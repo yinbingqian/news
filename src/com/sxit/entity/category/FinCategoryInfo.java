@@ -4,9 +4,8 @@ public class FinCategoryInfo {
 	private String Content;
 	private String Crtime;
 	private String Id;
-	private String Sys;
-	private String SysName;
-	private String Title;
+	private String RealName;
+	private String Reply;
 	private String Type;
 	private String Userid;
 	public String getContent() {
@@ -27,23 +26,17 @@ public class FinCategoryInfo {
 	public void setId(String id) {
 		Id = id;
 	}
-	public String getSys() {
-		return Sys;
+	public String getRealName() {
+		return RealName;
 	}
-	public void setSys(String sys) {
-		Sys = sys;
+	public void setRealName(String realName) {
+		RealName = realName;
 	}
-	public String getSysName() {
-		return SysName;
+	public String getReply() {
+		return Reply;
 	}
-	public void setSysName(String sysName) {
-		SysName = sysName;
-	}
-	public String getTitle() {
-		return Title;
-	}
-	public void setTitle(String title) {
-		Title = title;
+	public void setReply(String reply) {
+		Reply = reply;
 	}
 	public String getType() {
 		return Type;
@@ -57,6 +50,5 @@ public class FinCategoryInfo {
 	public void setUserid(String userid) {
 		Userid = userid;
 	}
-	
 	
 }

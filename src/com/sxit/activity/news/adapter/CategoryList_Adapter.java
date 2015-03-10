@@ -52,8 +52,8 @@ public class CategoryList_Adapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.activity_categorylist_item, null);
 			viewHolder = new ViewHolder();
 			viewHolder.news_img = (ImageView) convertView.findViewById(R.id.news_img);
-			viewHolder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
-			viewHolder.tv_crtimr = (TextView) convertView.findViewById(R.id.tv_crtimr);
+			viewHolder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+			viewHolder.tv_crtime = (TextView) convertView.findViewById(R.id.tv_date);
 			viewHolder.tv_content = (TextView) convertView.findViewById(R.id.tv_content);
 			convertView.setTag(viewHolder);
 		} else {
@@ -63,16 +63,20 @@ public class CategoryList_Adapter extends BaseAdapter {
 //		 Instance.imageLoader.displayImage(list.get(position).getThumbnail(), viewHolder.news_img, Instance.new_s_options);
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.news_img, Instance.new_s_options);
 //		viewHolder.tv_title.setText(list.get(position).getTitle());
-		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));
-//		viewHolder.tv_crtimr.setText(list.get(position).getCrtime());
+//		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));
+		viewHolder.tv_crtime.setText(list.get(position).getCrtime());
+		viewHolder.tv_content.setText(list.get(position).getContent());
+		viewHolder.tv_name.setText(list.get(position).getSysName());
+//		viewHolder.tv_crtime.setText(list.get(position).getCrtime());
 //		viewHolder.tv_content.setText(list.get(position).getContent());
 		return convertView;
 	}
 
 	static class ViewHolder {
-		public TextView tv_title;
-		public TextView tv_crtimr;
+//		public TextView tv_title;
+		public TextView tv_crtime;
 		public ImageView news_img;
 		public TextView tv_content;
+		public TextView tv_name;
 	}
 }

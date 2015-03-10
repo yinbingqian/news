@@ -6,14 +6,15 @@ public class SOAP_UTILS {
 		public static final String METHOD_LOGIN = "login";
 		// 通过新闻栏目返回新闻方法
 		public static final String GETCOLUMNSTONEWS = "columnstonews";
+		public static final String GETNEWSTITLE = "GetNewsTitle";
 		// 根据新闻id号，返回具体新闻内容方法
 		public static final String GETNEWSCONTENT = "news";
 		// 栏目关联话题
 		public static final String COMMUNICATIONLIST = "communicationlist";
 		// 话题列表
 		public static final String COMMUNICATION = "communication";
-		// 杩斿洖鏈�柊鏂伴椈鍒楄〃
-		public static final String GETNEWSTITLE = "GetNewsTitle";
+		// 话题关联回复
+		public static final String COMMUNREPLY = "communReply";
 		// 闂瓟淇℃伅娣诲姞
 		public static final String COMMUNICATIONADD = "CommunicationAdd";
 		// 鍒嗘瀽甯堝垪琛�
@@ -85,8 +86,8 @@ public class SOAP_UTILS {
 	// public static final String IP = "http://219.148.199.62/licai";
 //	public static final String IP = "http://200.20.30.212:8027/lnpdit";
 //	public static final String IP = "http://219.148.199.62:8027/lnpdit";
-//	public static final String IP = "http://200.20.31.37:8027/lnpdit";//wz的
-	public static final String IP = "http://218.60.13.9:8027/:8027/lnpdit";//服务器
+//	public static final String IP = "http://200.20.31.62:8027/lnpdit";//wz的
+	public static final String IP = "http://218.60.13.9:8027/lnpdit";//服务器
 	public static final String HEADER_URL = "http://218.60.13.9:8002/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx";
 	public static final String URL_WITHOUT_WSDL = IP + "/phoneinvoke.asmx";

@@ -44,32 +44,37 @@ public class Category_Adapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(R.layout.activity_categoryinformation_item, null);
 			viewHolder = new ViewHolder();
+//			viewHolder.img_icon = (ImageView) convertView.findViewById(R.id.img_icon);
+//			viewHolder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+//			viewHolder.tv_date = (TextView) convertView.findViewById(R.id.tv_date);
+//			viewHolder.tv_content = (TextView) convertView.findViewById(R.id.tv_content);
+//			viewHolder.tv_analyst = (TextView) convertView.findViewById(R.id.tv_analyst);
+//			viewHolder.tv_time = (TextView) convertView.findViewById(R.id.tv_time);
 			viewHolder.img_icon = (ImageView) convertView.findViewById(R.id.img_icon);
-			viewHolder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
-			viewHolder.tv_date = (TextView) convertView.findViewById(R.id.tv_date);
+			viewHolder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+			viewHolder.tv_ctime = (TextView) convertView.findViewById(R.id.tv_date);
 			viewHolder.tv_content = (TextView) convertView.findViewById(R.id.tv_content);
-			viewHolder.tv_analyst = (TextView) convertView.findViewById(R.id.tv_analyst);
-			viewHolder.tv_time = (TextView) convertView.findViewById(R.id.tv_time);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
-		viewHolder.tv_title.setText(list.get(position).getTitle());
-		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));
-//		viewHolder.tv_date.setText(list.get(position).getCtime());
-		viewHolder.tv_content.setText(list.get(position).getContent());
-		viewHolder.tv_time.setVisibility(View.GONE);
+		viewHolder.tv_ctime.setText(list.get(position).getCtime());
+		viewHolder.tv_content.setText(list.get(position).getTitle());
+		viewHolder.tv_name.setText(list.get(position).getUserName());
 		return convertView;
 	}
 
 	static class ViewHolder {
 		public ImageView img_icon;// icon
-		public TextView tv_title;// 名称
-		public TextView tv_date;// 时间
-		public TextView tv_analyst;// 分析师
-		public TextView tv_content;// 内容
-		public TextView tv_time;// 关注次数
+//		public TextView tv_title;// 名称
+//		public TextView tv_date;// 时间
+//		public TextView tv_analyst;// 分析师
+//		public TextView tv_content;// 内容
+//		public TextView tv_time;// 关注次数
+		public TextView tv_ctime;
+		public TextView tv_content;
+		public TextView tv_name;
 	}
 }

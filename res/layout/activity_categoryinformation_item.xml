@@ -47,46 +47,38 @@
             android:layout_toRightOf="@id/frame"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:text="较量时间"
+                android:textColor="@color/listview_item_tv_color"
+                android:textSize="@dimen/textsize18" />
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">"
+                android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.0"
-                    android:gravity="left"
-                    android:singleLine="true"
-                    android:text="较量时间"
-                    android:textSize="@dimen/textsize18" />
+                    android:text="王琢"
+                    android:textColor="@color/listview_item_tv_color"
+                    android:textSize="@dimen/textsize13" />
 
                 <TextView
                     android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="5分钟前"
                     android:textColor="@color/listview_item_tv_color"
                     android:textSize="@dimen/textsize13" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_analyst"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textColor="@color/listview_item_tv_color"
-                android:textSize="@dimen/textsize14" />
-
-            <TextView
-                android:id="@+id/tv_content"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:ems="2"
-                android:textColor="@color/register_text_color"
-                android:textSize="@dimen/textsize16" />
         </LinearLayout>
     </RelativeLayout>
 

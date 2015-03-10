@@ -6,11 +6,13 @@ import java.io.Serializable;
 public class FinCategory implements Serializable{
 	private String Content;
 	private String Crtime;
+	private String Ctime;
 	private String Id;
 	private String Sys;
 	private String SysName;
 	private String Title;
 	private String Type;
+	private String UserName;
 	private String Userid;
 	public String getContent() {
 		return Content;
@@ -23,6 +25,12 @@ public class FinCategory implements Serializable{
 	}
 	public void setCrtime(String crtime) {
 		Crtime = crtime;
+	}
+	public String getCtime() {
+		return Ctime;
+	}
+	public void setCtime(String ctime) {
+		Ctime = ctime;
 	}
 	public String getId() {
 		return Id;
@@ -54,12 +62,17 @@ public class FinCategory implements Serializable{
 	public void setType(String type) {
 		Type = type;
 	}
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
 	public String getUserid() {
 		return Userid;
 	}
 	public void setUserid(String userid) {
 		Userid = userid;
 	}
-	
 	
 }

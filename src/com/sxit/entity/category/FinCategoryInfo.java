@@ -1,6 +1,7 @@
 package com.sxit.entity.category;
 
 public class FinCategoryInfo {
+	private String UserHeader;
 	private String Content;
 	private String Crtime;
 	private String Id;
@@ -8,6 +9,13 @@ public class FinCategoryInfo {
 	private String Reply;
 	private String Type;
 	private String Userid;
+	
+	public String getUserHeader() {
+		return UserHeader;
+	}
+	public void setUserHeader(String userHeader) {
+		UserHeader = userHeader;
+	}
 	public String getContent() {
 		return Content;
 	}

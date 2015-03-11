@@ -355,6 +355,7 @@ public class SoapService implements ISoapService {
 
 							JSONObject json_all = json_array.getJSONObject(i);
 
+							String UserHeader = json_all.getString("UserHeader");
 							String Content = json_all.getString("Content");
 							String Crtime = json_all.getString("Crtime");
 							String Id = json_all.getString("Id");
@@ -419,11 +420,11 @@ public class SoapService implements ISoapService {
 						for (int i = 0; i < json_array.length(); i++) {
 							JSONObject json_category = json_array.getJSONObject(i);
 
+							String UserHeader = json_category.getString("UserHeader");
 							String Content = json_category.getString("Content");
 							String Crtime = json_category.getString("Crtime");
 							String Id = json_category.getString("Id");
-							String RealName = json_category
-									.getString("RealName");
+							String RealName = json_category.getString("RealName");
 							String Reply = json_category.getString("Reply");
 							String Type = json_category.getString("Type");
 							String Userid = json_category.getString("Userid");

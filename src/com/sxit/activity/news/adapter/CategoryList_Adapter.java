@@ -60,7 +60,7 @@ public class CategoryList_Adapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
-//		 Instance.imageLoader.displayImage(list.get(position).getThumbnail(), viewHolder.news_img, Instance.new_s_options);
+		 Instance.imageLoader.displayImage(list.get(position).getUserHeader(), viewHolder.news_img, Instance.new_s_options);
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.news_img, Instance.new_s_options);
 //		viewHolder.tv_title.setText(list.get(position).getTitle());
 //		viewHolder.tv_title.setTextColor(context.getResources().getColor(R.color.text_color));

@@ -16,7 +16,7 @@
             android:layout_width="@dimen/normal_height54"
             android:layout_height="@dimen/normal_height54"
             android:layout_gravity="center"
-            android:background="@drawable/w_icon01"
+            android:background="@drawable/huati"
             android:clickable="true"
             android:scaleType="centerInside"/>
 
@@ -42,38 +42,7 @@
             android:onClick="refreshContact" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#B1B9B9" >
-
-        <EditText
-            android:id="@+id/serveredit"
-            android:layout_width="fill_parent"
-            android:layout_height="35dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/white"
-            android:drawableLeft="@drawable/search_icon"
-            android:hint="@string/search_topic"
-            android:inputType="textNoSuggestions"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:textSize="18sp" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/contactnumber"
-            android:layout_width="wrap_content"
-            android:layout_height="2sp"
-            android:layout_below="@+id/serveredit"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+    
 
     <ScrollView
         android:layout_width="fill_parent"

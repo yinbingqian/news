@@ -4,6 +4,8 @@ package com.sxit.entity.category;
 import java.io.Serializable;
 
 public class FinCategory implements Serializable{
+
+	private String UserHeader;
 	private String Content;
 	private String Crtime;
 	private String Ctime;
@@ -14,6 +16,13 @@ public class FinCategory implements Serializable{
 	private String Type;
 	private String UserName;
 	private String Userid;
+	
+	public String getUserHeader() {
+		return UserHeader;
+	}
+	public void setUserHeader(String userHeader) {
+		UserHeader = userHeader;
+	}
 	public String getContent() {
 		return Content;
 	}

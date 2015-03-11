@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sxit.entity.category.FinCategory;
+import com.sxit.instance.Instance;
 
 
 public class Category_Adapter extends BaseAdapter {
@@ -58,7 +59,7 @@ public class Category_Adapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-//		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
+		Instance.imageLoader.displayImage(list.get(position).getUserHeader(), viewHolder.img_icon, Instance.new_s_options);
 //		Instance.imageLoader.displayImage(list.get(position).getPicture(), viewHolder.img_icon, Instance.new_s_options);
 		viewHolder.tv_ctime.setText(list.get(position).getCtime());
 		viewHolder.tv_content.setText(list.get(position).getTitle());

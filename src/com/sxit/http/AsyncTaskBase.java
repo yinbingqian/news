@@ -33,7 +33,7 @@ public class AsyncTaskBase {
 
 		@Override
 		protected String doInBackground(Object... params) {
-			Object res_obj = SoapWebService.data(method, property_nm, property_va);
+			Object res_obj = SoapGetService.data(method, property_nm, property_va);
 			if (null != res_obj) {
 				String so = (String) res_obj;
 //				SoapObject so = (SoapObject) res_obj;

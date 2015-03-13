@@ -31,15 +31,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/textsize23" />
 
-        <Button
-            android:id="@+id/add_bt"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/add_white"
-            android:onClick="refreshContact" />
+       
     </RelativeLayout>
 
     

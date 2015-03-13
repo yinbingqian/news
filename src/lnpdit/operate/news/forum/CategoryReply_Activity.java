@@ -206,6 +206,8 @@ public class CategoryReply_Activity extends BaseActivity {
 				Log.d("news", "recieved");
 				String res_is = (String) msg.obj;
 				Toast.makeText(context, res_is, Toast.LENGTH_SHORT).show();
+				String[] property_va = new String[] { Id, "10", pageIndex + "" };
+				soapService.getCategoryContent(property_va);
 			}
 		}
 	};
@@ -268,10 +270,10 @@ public class CategoryReply_Activity extends BaseActivity {
 			} else {
 				list = (List<FinCategoryInfo>) obj.getObj();
 				if (list != null) {
-					if (list.size() != 0) {
+//					if (list.size() != 0) {
 						adapter = new CategoryInfo_Adapter(this, list);
 						listView.setAdapter(adapter);
-					}
+//					}
 				}
 			}
 			listView_categoryInfo.onRefreshComplete();

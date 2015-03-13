@@ -17,8 +17,8 @@ public class SOAP_UTILS {
 		public static final String COMMUNREPLY = "communReply";
 		// 回复话题
 		public static final String ADDCOMMUNREPLY = "AddCommunReply";
-		// 鍒嗘瀽甯堝垪琛�
-		public static final String GETADMIN = "GetAdmin";
+		// 手机端创建话题
+		public static final String ADDCOMMUNICATION = "AddCommunication";
 		// 闂瓟鍥炲鍒楄〃
 		public static final String GETCOMMUNREPLY = "GetCommunReply";
 		// 鍒嗘瀽甯堝洖澶嶅垪琛�

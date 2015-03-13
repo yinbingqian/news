@@ -44,6 +44,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -58,7 +59,7 @@ public class CategoryItemActivity extends BaseActivity{
 	TextView ht_title;
 	String Title;
 	String Id;
-	
+	Button add_bt;
 //	private TextView tv_title;
 //	private ImageView img_back;
 	private PullToRefreshListView listView_category;
@@ -83,14 +84,31 @@ public class CategoryItemActivity extends BaseActivity{
 		String[] property_va = new String[] { Id, "10", pageIndex + "" };
 		soapService.getCategoryTitle(property_va, false);
 	}
+	
+	
+	
 	private void initView() {
 		ht_title = (TextView) findViewById(R.id.ht_title);
 		ht_title.setText(Title);
+
+		add_bt = (Button) findViewById(R.id.add_bt);
 		
 		listView_category = (PullToRefreshListView) findViewById(R.id.listView_category);
 		listView = listView_category.getRefreshableView();
 	}
 	private void setListeners() {
+		add_bt.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.putExtra("Id", Id);
+				
+				intent.setClass(CategoryItemActivity.this, CategoryRelease_Activity.class);
+				startActivity(intent);
+			}
+		});
 //		img_back.setOnClickListener(this);
 		listView_category.setOnItemClickListener(new OnItemClickListener() {
 
@@ -105,11 +123,13 @@ public class CategoryItemActivity extends BaseActivity{
 //				Bundle bundle = new Bundle();
 //				bundle.putSerializable("fincategorylist", list.get(position - 1));
 //				intent.putExtras(bundle);
+				String sysid = list.get(position - 1).getSys();
 				String topicid = list.get(position - 1).getId();
 				String topictitle = list.get(position - 1).getTitle();
 				String username = list.get(position - 1).getUserName();
 				String topictime = list.get(position - 1).getCtime();
 				String topiccontent = list.get(position - 1).getContent();
+				intent.putExtra("sysid", sysid);
 				intent.putExtra("Id", topicid);
 				intent.putExtra("title_title_tv", topictitle);
 				intent.putExtra("title_name_tv", username);
@@ -177,6 +197,9 @@ public class CategoryItemActivity extends BaseActivity{
 	@Override
 	protected void onResume() {
 		super.onResume();
+		//À¢–¬œ‘ æ
+		String[] property_va = new String[] { Id, "10", pageIndex + "" };
+		soapService.getCategoryTitle(property_va, false);
 	}
 
 	@Override
